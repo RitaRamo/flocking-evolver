@@ -2,6 +2,8 @@
 
 The aim of Flocking-Evolver is to evolve sef-organized flocking behaviour in the scope of Evolutionary Robotics. 
 
+[![Demo CountPages alpha](https://gifs.com/gif/evolving-flocking-p8gL7X)](https://youtu.be/ANGf4caCp9A)
+
 
 # References and Installation
 
