@@ -4,32 +4,32 @@
 
 The arguments that we used for all our experiments:
 
-* Robot: [DifferentialDriveRobot Pages](https://github.com/RitaRamo/flocking-evolver/blob/rita/JBotRita/src/evaluationfunctions/flocking/ReynoldsLocally.java)
+* Robot: [DifferentialDriveRobot](https://github.com/RitaRamo/flocking-evolver/blob/rita/JBotSim/src/simulation/robot/DifferentialDriveRobot.java)
 
-* Sensor: OrientationRobotsAverageSensor and RobotSensor
+* Sensor: [OrientationRobotsAverageSensor](https://github.com/RitaRamo/flocking-evolver/blob/rita/JBotRita/src/sensors/OrientationRobotsAverageSensor.java) and [RobotSensor](https://github.com/RitaRamo/flocking-evolver/blob/rita/JBotSim/src/simulation/robot/sensors/RobotSensor.java)
 
-* Actuator: TwoWheelActuator
+* Actuator: [TwoWheelActuator](https://github.com/RitaRamo/flocking-evolver/blob/rita/JBotSim/src/evolutionaryrobotics/neuralnetworks/outputs/TwoWheelNNOutput.java)
 
-* Controller: NeuralNetworkController
+* Controller: [NeuralNetworkController](https://github.com/RitaRamo/flocking-evolver/blob/rita/JBotSim/src/evolutionaryrobotics/neuralnetworks/NeuralNetworkController.java)
 
-* NeuralNetwork: CTRNNMultilayer
+* NeuralNetwork: [CTRNNMultilayer](https://github.com/RitaRamo/flocking-evolver/blob/rita/JBotSim/src/evolutionaryrobotics/neuralnetworks/CTRNNMultilayer.java)
 
-* Population: MuLambdaPopulation
+* Population: [MuLambdaPopulation](https://github.com/RitaRamo/flocking-evolver/blob/rita/JBotEvolver/src/evolutionaryrobotics/populations/MuLambdaPopulation.java)
+ 
+* Environment: [EmptyEnviromentsWithFixPositions](https://github.com/RitaRamo/flocking-evolver/blob/rita/JBotRita/src/environment/EmptyEnviromentsWithFixPositions.java)
 
-* Environment: EmptyEnviromentsWithFixPositions
-
-* Evolution: GenerationalEvolution
+* Evolution: [GenerationalEvolution](https://github.com/RitaRamo/flocking-evolver/blob/rita/JBotEvolver/src/evolutionaryrobotics/evolution/GenerationalEvolution.java)
 
 
 Only the evaluation function was choosen differently for each experimental setup:
 
-* Evaluation function - Local Setup: ReynoldsLocally
+* Evaluation function - Local Setup: [ReynoldsLocally](https://github.com/RitaRamo/flocking-evolver/blob/rita/JBotRita/src/evaluationfunctions/flocking/ReynoldsLocally.java)
 
-* Evaluation function - Global Setup: ReynoldsGlobal
+* Evaluation function - Global Setup: [ReynoldsGlobal](https://github.com/RitaRamo/flocking-evolver/blob/rita/JBotRita/src/evaluationfunctions/flocking/ReynoldsGlobal.java)
 
-* Evaluation function - No Alignment Setup: ReynoldsGlobalWithoutAlignment
+* Evaluation function - No Alignment Setup: [ReynoldsGlobalWithoutAlignment](https://github.com/RitaRamo/flocking-evolver/blob/rita/JBotRita/src/evaluationfunctions/flocking/ReynoldsGlobalWithoutAlignment.java)
 
-
+<br>
 The complete configuration file of each setup can be seen inside each subfolder (GlobalSetup, LocalSetup or NoAlignmentSetup), within the file _arguments.conf 
 
 
