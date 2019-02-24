@@ -24,8 +24,8 @@ public class RobotsChargingAverageSensor extends Sensor {
 	@ArgumentsAnnotation(name = "range", help = "Range of the sensor.", defaultValue = "1.0")
 	protected double range = 1.0;
 
-	@ArgumentsAnnotation(name = "increaseRange", help = "Increase range of the sensor while jumping.", defaultValue = "1.0")
-	protected double increaseRange = 1.0;
+	@ArgumentsAnnotation(name = "increaseRange", help = "Increase range of the sensor while jumping.", defaultValue = "0.0")
+	protected double increaseRange = 0.0;
 	
 	
 	public RobotsChargingAverageSensor(Simulator simulator, int id, Robot robot,
