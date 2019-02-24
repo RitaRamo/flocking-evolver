@@ -19,10 +19,32 @@ import evolutionaryrobotics.evaluationfunctions.EvaluationFunction;
 public class ReynoldsGlobal extends ReynoldsLocally {
 	
 	protected HashMap<Integer, Set<Integer>> equivalenceClasses;
+	protected double cos,sen;
 
 	public ReynoldsGlobal(Arguments args) {
 		super(args);
 	}
+	
+	@Override
+	protected void init(){
+		super.init();
+		cos=0;
+		sen=0;
+		equivalenceClasses = new HashMap<Integer, Set<Integer>>();
+
+	}
+	
+	
+	protected void alignment(Robot robot){
+		double angleOfRobot=robot.getOrientation();  
+		cos+=Math.cos(angleOfRobot);  
+		sen+=Math.sin(angleOfRobot);
+	}
+	
+	protected void computeFitnessForAlignment(){
+		fitnessForAlignment+=Math.sqrt(cos*cos+ sen*sen)/ robots.size();
+	}
+	
 	
 	@Override
 	protected void cohesion(int i, Robot robot){
@@ -48,12 +70,7 @@ public class ReynoldsGlobal extends ReynoldsLocally {
 	}
 
 	
-	@Override
-	protected void init(){
-		super.init();
-		equivalenceClasses = new HashMap<Integer, Set<Integer>>();
 
-	}
 	
 
 	public void computeGroupsPairs( int robot, ArrayList<Robot> robots , int i, int robotsSize){

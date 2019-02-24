@@ -13,8 +13,13 @@ public class ReynoldsGlobalWithoutAlignment extends ReynoldsGlobal {
 	
 	@Override
 	protected void alignment(Robot robot){
-		currentAlignment=0;
+	}
+	
+	@Override
+	protected void computeFitnessForAlignment(){
+		fitnessForAlignment=0;
 	}
 		
 
 }
+
