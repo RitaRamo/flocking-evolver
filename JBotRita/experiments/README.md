@@ -6,28 +6,28 @@ The arguments that we used for all our experiments:
 
 * Robot: DifferentialDriveRobot
 
-Sensor: OrientationRobotsAverageSensor and RobotSensor
+* Sensor: OrientationRobotsAverageSensor and RobotSensor
 
-Actuator: TwoWheelActuator
+* Actuator: TwoWheelActuator
 
-Controller: NeuralNetworkController
+* Controller: NeuralNetworkController
 
-NeuralNetwork: CTRNNMultilayer
+* NeuralNetwork: CTRNNMultilayer
 
-Population: MuLambdaPopulation
+* Population: MuLambdaPopulation
 
-Environment: EmptyEnviromentsWithFixPositions
+* Environment: EmptyEnviromentsWithFixPositions
 
-Evolution: GenerationalEvolution
+* Evolution: GenerationalEvolution
 
 
 Only the evaluation function was choosen differently for each experimental setup:
 
-Local Setup: 
+* Evaluation function - Local Setup: 
 
-Global Setup:
+* Evaluation function - Global Setup:
 
-No Alignment Setup: 
+* Evaluation function - No Alignment Setup: 
 
 
 The complete configuration file of each setup can be seen inside each subfolder (GlobalSetup, LocalSetup or NoAlignmentSetup), within the file _arguments.conf 
