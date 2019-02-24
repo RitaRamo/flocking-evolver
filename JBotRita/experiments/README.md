@@ -23,11 +23,11 @@ The arguments that we used for all our experiments:
 
 Only the evaluation function was choosen differently for each experimental setup:
 
-* Evaluation function - Local Setup: 
+* Evaluation function - Local Setup: ReynoldsLocally
 
-* Evaluation function - Global Setup:
+* Evaluation function - Global Setup: ReynoldsGlobal
 
-* Evaluation function - No Alignment Setup: 
+* Evaluation function - No Alignment Setup: ReynoldsGlobalWithoutAlignment
 
 
 The complete configuration file of each setup can be seen inside each subfolder (GlobalSetup, LocalSetup or NoAlignmentSetup), within the file _arguments.conf 
@@ -38,8 +38,7 @@ See the results with GUI:
 Navigate to JBotRita directory and launch the program using ritaMain.java, in which you can then see our experiment results. Choose one of the folders (GlobalSetup, LocalSetup or NoAlignmentSetup) and click the respective _showbest_current.conf. 
 We will then see the evolved behaviour of the highest scoring controller of the respective setup. 
 
-
-
+![alt text](https://github.com/RitaRamo/flocking-evolver/blob/rita/JBotRita/experiments/GUI.png)
 
 
 More info [1]:
