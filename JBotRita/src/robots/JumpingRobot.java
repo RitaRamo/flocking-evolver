@@ -164,7 +164,7 @@ public class JumpingRobot extends DifferentialDriveRobot {
 	}
 	
 	public boolean charging(){
-		return statusOfJumping==true && hasNotStartedJumping==false;
+		return statusOfJumping && hasNotStartedJumping;
 	}
 	
 	public double getHeight(){
