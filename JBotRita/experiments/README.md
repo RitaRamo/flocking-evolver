@@ -34,7 +34,7 @@ Only the evaluation function was choosen differently for each experimental setup
 The complete configuration file of each setup can be seen inside each subfolder (GlobalSetup, LocalSetup or NoAlignmentSetup), within the file _arguments.conf 
 
 <br>
-# See Results using GUI:
+<h1> See Results using GUI: </h1>
 
 Navigate to JBotRita directory and launch the program using ritaMain.java, in which you can then see our experiment results. Choose one of the folders (GlobalSetup, LocalSetup or NoAlignmentSetup) and click the respective _showbest_current.conf. 
 We will then see the evolved behaviour of the highest scoring controller of the respective setup. 
