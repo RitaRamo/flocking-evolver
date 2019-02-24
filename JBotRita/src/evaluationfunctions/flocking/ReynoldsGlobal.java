@@ -70,9 +70,6 @@ public class ReynoldsGlobal extends ReynoldsLocally {
 	}
 
 	
-
-	
-
 	public void computeGroupsPairs( int robot, ArrayList<Robot> robots , int i, int robotsSize){
 		for (int j = i + 1; j < robotsSize; j++) {
 			if (robots.get(i).getPosition().distanceTo(robots.get(j).getPosition()) <= cohensionDistance) {
@@ -120,11 +117,6 @@ public class ReynoldsGlobal extends ReynoldsLocally {
 		newEquivalenceClass.add(neighbour);
 		equivalenceClasses.put(robot, newEquivalenceClass);
 		equivalenceClasses.put(neighbour, newEquivalenceClass);
-	}
-			
-
-	protected double normalize(double value, double maxValue, double minValue, double newMinValue, double newMaxValue) {
-		return (value - minValue) * (newMaxValue - newMinValue)/ (double) (maxValue - minValue) + newMinValue;
 	}
 	
 	

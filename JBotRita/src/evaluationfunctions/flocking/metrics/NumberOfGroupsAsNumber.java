@@ -23,7 +23,7 @@ public class NumberOfGroupsAsNumber extends NumberOfGroups {
 			}
 		}
 		
-		currentFitness=groups.size(); // we have to normalize between [0,1]
+		currentFitness=groups.size(); 
 		fitness += currentFitness;
 		
 		return fitness ;
