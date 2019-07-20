@@ -13,7 +13,7 @@ import evolutionaryrobotics.evaluationfunctions.EvaluationFunction;
 
 public class ReynoldsLocally extends EvaluationFunction {
 	
-	protected double fitnessForAlignment, fitnessForCohesion, fitnessForMovement;
+	protected double fitnessForAlignment, fitnessForCohesion, fitnessForMovement,fitnessForSeparation;
 	
 	protected int numberCollisions;
 
@@ -23,6 +23,9 @@ public class ReynoldsLocally extends EvaluationFunction {
 	
 	@ArgumentsAnnotation(name="cohensionDistance", defaultValue="0.25")	
 	protected double cohensionDistance;
+	
+	@ArgumentsAnnotation(name="separationFactor", defaultValue="1")	
+	protected double separationFactor;
 	
 	protected double currentMovement;
 	
@@ -34,14 +37,12 @@ public class ReynoldsLocally extends EvaluationFunction {
 		super(args);
 		cohensionDistance = args.getArgumentIsDefined("cohensionDistance") ? args
 				.getArgumentAsDouble("cohensionDistance") : 0.25;
+		separationFactor=args.getArgumentIsDefined("separationFactor") ? args
+					.getArgumentAsDouble("separationFactor") : 1.0;
 	}
 	
 	public double getFitness() {
-		/*System.out.println("alignment"+ (fitnessForAlignment/simulator.getTime()) );
-		System.out.println("cohesion"+ (fitnessForCohesion/simulator.getTime()) );
-		System.out.println("movemnt"+ (fitnessForMovement/simulator.getTime()) );*/
-
-		return fitnessForAlignment/simulator.getTime() + fitnessForCohesion/simulator.getTime()-numberCollisions/simulator.getTime()+fitnessForMovement ;
+		return fitnessForAlignment/simulator.getTime() + fitnessForCohesion/simulator.getTime()-separationFactor*fitnessForSeparation/simulator.getTime()+fitnessForMovement ;
 	}
 	
 	@Override
@@ -64,6 +65,7 @@ public class ReynoldsLocally extends EvaluationFunction {
 	
 
 	protected void init(){
+		numberCollisions=0;
 		currentAlignment=0;
 		currentCohesion = 0;
 		currentMovement=0.0;
@@ -74,6 +76,7 @@ public class ReynoldsLocally extends EvaluationFunction {
 		if(robot.isInvolvedInCollison()){    
 			numberCollisions++;
 		}
+
 	}
 	
 	protected void alignment(Robot robot){
@@ -86,7 +89,7 @@ public class ReynoldsLocally extends EvaluationFunction {
 		for(int j = 0 ; j < robots.size() ; j++) {  
 			Robot neighbour=robots.get(j);
 
-			if(robotPosition.distanceTo(neighbour.getPosition())<=cohensionDistance){
+			if(robotPosition.distanceTo(neighbour.getPosition())<=cohensionDistance){				
 				double angleOfRobot=neighbour.getOrientation();
 				cos+=Math.cos(angleOfRobot);  
 				sen+=Math.sin(angleOfRobot);
@@ -129,22 +132,26 @@ public class ReynoldsLocally extends EvaluationFunction {
 	protected void computeSwarmFitnessOfEachRule(){
 		computeFitnessForAlignment();
 		computeFitnessForCohesion();
-		//Separation is computed in the end [nºcollisions/timesteps]
+		computeFitnessForSeparation();
 		computeFitnessForMovement();
 	}
 	
 	protected void computeFitnessForAlignment(){
-		fitnessForAlignment+=currentAlignment/ robots.size();
+		fitnessForAlignment+= currentAlignment/ robots.size();
 	}
 	
 	protected void computeFitnessForCohesion(){
-		fitnessForCohesion+=currentCohesion/ robots.size();
+		fitnessForCohesion+= currentCohesion/ robots.size();
+	}
+	
+	protected void computeFitnessForSeparation(){
+		fitnessForSeparation += (double) numberCollisions/ robots.size();
 	}
 	
 	protected void computeFitnessForMovement(){
 		double avarage_MovementContribution = currentMovement/ robots.size();
-		if (avarage_MovementContribution > fitnessForMovement)
-			fitnessForMovement = avarage_MovementContribution;	
+		//if (avarage_MovementContribution > fitnessForMovement)
+		fitnessForMovement = avarage_MovementContribution;	
 	}
 	
 	protected boolean contains(PhysicalObject [] neighboursPerceived, Robot neighbour){
