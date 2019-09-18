@@ -10,40 +10,23 @@ import simulation.util.Arguments;
 import simulation.util.ArgumentsAnnotation;
 
 /**
- * Alignment sensor to see the relative orientation regarding others robots
+ * Alignment sensor to see the relative orientation regarding a fixed orientation
  * (average of the neighbours robots orientation)
  * @author Rita Ramos
  */
 
 public class OrientationFixedPointSensor extends Sensor {
-	private static final double FIXED_ORIENTATION = 0.0;
-	
-	private Simulator simulator;
+	private static final double FIXED_ORIENTATION = 0.0;	
 	private Robot robot;
-	protected boolean rangedIncreased = false;
-
-	
-	@ArgumentsAnnotation(name = "range", help = "Range of the sensor.", defaultValue = "1.0")
-	protected double range = 1.0;
-
-	@ArgumentsAnnotation(name = "increaseRange", help = "Increase range of the sensor while jumping.", defaultValue = "1.0")
-	protected double increaseRange = 1.0;
 
 	public OrientationFixedPointSensor(Simulator simulator, int id, Robot robot,
 			Arguments args) {
 		super(simulator, id, robot, args);
-		this.simulator = simulator;
 		this.robot = robot;
-		range = (args.getArgumentIsDefined("range")) ? args
-				.getArgumentAsDouble("range") : 1.0;
-		increaseRange = (args.getArgumentIsDefined("increaseRange")) ? args
-				.getArgumentAsDouble("increaseRange") : 1.0;
 	}
 
 	@Override
 	public double getSensorReading(int sensorNumber) {
-		Vector2d robotPosition = robot.getPosition();
-
 		double differenceOfOrientation = calculateDifferenceBetweenAngles(
 				Math.toDegrees(FIXED_ORIENTATION),
 				Math.toDegrees(robot.getOrientation())); // [-180,180]
@@ -69,10 +52,4 @@ public class OrientationFixedPointSensor extends Sensor {
 		return "RotationRobotsGlobalSensor [" + getSensorReading(0) + "]";
 	}
 	
-	private void rangeBackToDefault() {
-		if (rangedIncreased == true) {
-			rangedIncreased = false;
-			range = range - increaseRange;
-		}
-	}
 }
