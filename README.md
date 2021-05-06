@@ -2,6 +2,7 @@
 
 Code described in the paper Evolving flocking in embodied agents based on local and global application of Reynolds’ rules: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0224376
 
+```
 @article{ramos2019evolving,
   title={Evolving flocking in embodied agents based on local and global application of Reynolds’ rules},
   author={Ramos, Rita Parada and Oliveira, Sancho Moura and Vieira, Susana Margarida and Christensen, Anders Lyhne},
@@ -11,7 +12,9 @@ Code described in the paper Evolving flocking in embodied agents based on local 
   pages={e0224376},
   year={2019},
   publisher={Public Library of Science San Francisco, CA USA}
-}
+} 
+```
+
 
 The aim of this repo, Flocking-Evolver, is to evolve sef-organized flocking behaviour in the scope of Evolutionary Robotics. 
 
